@@ -1,0 +1,48 @@
+litellm_settings:
+  drop_params: true
+  stream_response: true
+  callbacks: ["langfuse"]
+
+model_list:
+  - model_name: "llama3"
+    litellm_params:
+      model: "ollama/llama3"
+      api_base: "http://shockwave:11434"
+      num_ctx: 32768  # or 32768 if supported by llama3
+
+  - model_name: "mistral"
+    litellm_params:
+      model: "ollama/mistral"
+      api_base: http://shockwave:11434
+      num_ctx: 32768  # Mistral typically supports 8k, but check Ollama variant
+
+  - model_name: "deepseek-r1:7b"
+    litellm_params:
+      model: "ollama/deepseek-r1:7b"
+      api_base: "http://shockwave:11434"
+      num_ctx: 32768  # DeepSeek-R has long context support
+
+  - model_name: "nomic-embed-text"
+    litellm_params:
+      model: ollama/nomic-embed-text:latest"
+      api_base: http://shockwave:11434
+      model_type: embedding
+      # num_ctx not needed for embedding models
+      num_ctx: 32768
+# create a .env file put languse public and secret key     
+langfuse:
+  public_key: ${LANGFUSE_PUBLIC_KEY}
+  secret_key: ${LANGFUSE_SECRET_KEY}
+  host: ${LANGFUSE_HOST}
+
+success_callback: ["langfuse"]
+failure_callback: ["langfuse"]
+
+proxy_server:
+  host: localhost # replace with your host name
+  port: 4000
+ 
+
+ #run this litellm proxy server use command 
+ # export $(cat .env | xargs) && litellm --config ./litellm.config.yaml 
+ 
