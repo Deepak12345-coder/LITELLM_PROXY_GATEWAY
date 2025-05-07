@@ -7,19 +7,19 @@ model_list:
   - model_name: "llama3"
     litellm_params:
       model: "ollama/llama3"
-      api_base: "http://shockwave:11434"
+      api_base: "http://localhost:11434"
       num_ctx: 32768  # or 32768 if supported by llama3
 
   - model_name: "mistral"
     litellm_params:
       model: "ollama/mistral"
-      api_base: http://shockwave:11434
+      api_base: http://localhost:11434
       num_ctx: 32768  # Mistral typically supports 8k, but check Ollama variant
 
   - model_name: "deepseek-r1:7b"
     litellm_params:
       model: "ollama/deepseek-r1:7b"
-      api_base: "http://shockwave:11434"
+      api_base: "http://localhost:11434"
       num_ctx: 32768  # DeepSeek-R has long context support
 
   - model_name: "nomic-embed-text"
