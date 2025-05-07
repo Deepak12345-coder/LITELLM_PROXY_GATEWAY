@@ -25,7 +25,7 @@ model_list:
   - model_name: "nomic-embed-text"
     litellm_params:
       model: ollama/nomic-embed-text:latest"
-      api_base: http://shockwave:11434
+      api_base: http://localhost:11434
       model_type: embedding
       # num_ctx not needed for embedding models
       num_ctx: 32768
