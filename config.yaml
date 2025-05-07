@@ -44,5 +44,5 @@ proxy_server:
  
 
  #run this litellm proxy server use command 
- # export $(cat .env | xargs) && litellm --config ./litellm.config.yaml 
+ # export $(cat .env | xargs) && litellm --config ./config.yaml 
  
